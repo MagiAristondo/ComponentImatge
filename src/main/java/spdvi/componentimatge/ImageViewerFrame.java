@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package spdvi.componentimatge;
 
-/**
- *
- * @author Rulox
- */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 public class ImageViewerFrame extends JFrame {
     private ImagePanel imagePanel;
-    private JButton btnLoad, btnResize, btnClear, btnRotate, btnSave;
+    private JButton btnLoad, btnResize, btnClear, btnRotate, btnSave, btnShowDimensions;
 
     public ImageViewerFrame() {
         setTitle("Image Viewer Mejorado");
@@ -33,6 +25,7 @@ public class ImageViewerFrame extends JFrame {
         btnClear = new JButton("Limpiar Imagen");
         btnRotate = new JButton("Rotar Imagen");
         btnSave = new JButton("Guardar Imagen");
+        btnShowDimensions = new JButton("Mostrar Dimensiones");
 
         // Panel para los botones
         JPanel buttonPanel = new JPanel();
@@ -42,6 +35,7 @@ public class ImageViewerFrame extends JFrame {
         buttonPanel.add(btnClear);
         buttonPanel.add(btnRotate);
         buttonPanel.add(btnSave);
+        buttonPanel.add(btnShowDimensions); // Añadir botón de mostrar dimensiones
 
         // Añadir componentes al frame
         add(imagePanel, BorderLayout.CENTER);
@@ -53,6 +47,7 @@ public class ImageViewerFrame extends JFrame {
         btnClear.addActionListener(e -> limpiarImagen());
         btnRotate.addActionListener(e -> rotarImagen());
         btnSave.addActionListener(e -> guardarImagen());
+        btnShowDimensions.addActionListener(e -> mostrarDimensiones());
 
         // Añadir funcionalidad de teclado
         addKeyListener(new KeyAdapter() {
@@ -73,6 +68,9 @@ public class ImageViewerFrame extends JFrame {
                         break;
                     case KeyEvent.VK_S: // S para guardar imagen
                         guardarImagen();
+                        break;
+                    case KeyEvent.VK_D: // D para mostrar dimensiones
+                        mostrarDimensiones();
                         break;
                 }
             }
@@ -100,10 +98,15 @@ public class ImageViewerFrame extends JFrame {
         try {
             int width = Integer.parseInt(inputWidth);
             int height = Integer.parseInt(inputHeight);
-            imagePanel.resizeImage(width, height);
+            imagePanel.resizeImage(width, height); // Redimensionar usando la imagen original
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Por favor, introduce números válidos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void mostrarDimensiones() {
+        String dimensions = imagePanel.getCurrentImageDimensions();
+        JOptionPane.showMessageDialog(this, dimensions, "Dimensiones de la Imagen", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void limpiarImagen() {
@@ -130,4 +133,3 @@ public class ImageViewerFrame extends JFrame {
         });
     }
 }
-
