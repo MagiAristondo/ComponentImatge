@@ -11,7 +11,7 @@ public class ImageViewerFrame extends JFrame {
     private ImagePanel imagePanel;
     private JButton btnLoad, btnResize, btnClear, btnRotate, btnSave, btnShowDimensions;
 
-    public ImageViewerFrame() {
+    public ImageViewerFrame(String imagePath) {
         setTitle("Image Viewer Mejorado");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -81,6 +81,11 @@ public class ImageViewerFrame extends JFrame {
 
         pack();
         setLocationRelativeTo(null); // Centrar ventana
+    }
+    
+    public ImageViewerFrame() {
+        // Constructor por defecto
+        this(null);
     }
 
     private void cargarImagen() {
