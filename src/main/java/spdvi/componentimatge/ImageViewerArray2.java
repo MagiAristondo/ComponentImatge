@@ -12,19 +12,19 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class ImageViewerArray extends JFrame {
-    private ImagePanel imagePanel;
+public class ImageViewerArray2 extends JFrame {
+    private ImagePanel2 imagePanel;
     private JButton btnLoad, btnResize, btnClear, btnRotate, btnSave, btnNext, btnPrevious;
     private ArrayList<String> imagePaths = new ArrayList<>();
     private int currentIndex = 0; // Índice de la imagen actual
 
-    public ImageViewerArray() {
+    public ImageViewerArray2() {
         setTitle("Image Viewer Mejorado");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         // Crear el panel de la imagen
-        imagePanel = new ImagePanel();
+        imagePanel = new ImagePanel2();
 
         // Crear los botones
         btnLoad = new JButton("Cargar Imagen");
@@ -159,7 +159,7 @@ public class ImageViewerArray extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            ImageViewerArray frame = new ImageViewerArray();
+            ImageViewerArray2 frame = new ImageViewerArray2();
             frame.setVisible(true);
         });
     }

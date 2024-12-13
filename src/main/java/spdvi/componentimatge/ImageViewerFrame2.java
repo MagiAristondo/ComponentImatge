@@ -7,17 +7,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class ImageViewerFrame extends JFrame {
-    private ImagePanel imagePanel;
+public class ImageViewerFrame2 extends JFrame {
+    private ImagePanel2 imagePanel;
     private JButton btnLoad, btnResize, btnClear, btnRotate, btnSave, btnShowDimensions;
 
-    public ImageViewerFrame(String imagePath) {
+    public ImageViewerFrame2(String imagePath) {
         setTitle("Image Viewer Mejorado");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         // Crear el panel de la imagen
-        imagePanel = new ImagePanel();
+        imagePanel = new ImagePanel2();
 
         // Crear los botones
         btnLoad = new JButton("Cargar Imagen");
@@ -83,7 +83,7 @@ public class ImageViewerFrame extends JFrame {
         setLocationRelativeTo(null); // Centrar ventana
     }
     
-    public ImageViewerFrame() {
+    public ImageViewerFrame2() {
         // Constructor por defecto
         this(null);
     }
@@ -133,7 +133,7 @@ public class ImageViewerFrame extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            ImageViewerFrame frame = new ImageViewerFrame();
+            ImageViewerFrame2 frame = new ImageViewerFrame2();
             frame.setVisible(true);
         });
     }

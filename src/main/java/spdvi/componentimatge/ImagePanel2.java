@@ -12,13 +12,13 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class ImagePanel extends JPanel {
+public class ImagePanel2 extends JPanel {
     private BufferedImage originalImage; // Imagen original
     private BufferedImage currentImage;  // Imagen redimensionada actual
     private String imagePath; // Ruta de la imagen
     private double rotationAngle; // Ángulo de rotación
 
-    public ImagePanel() {
+    public ImagePanel2() {
         this.originalImage = null;
         this.currentImage = null;
         this.imagePath = null;
